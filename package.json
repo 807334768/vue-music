@@ -11,9 +11,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.12.4",
     "fastclick": "^1.0.6",
+    "husky": "^5.0.9",
     "jsonp": "^0.2.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
@@ -34,6 +37,7 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -71,9 +75,19 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
+  "husky":{
+  	"hooks":{
+  		"commit-msg":"commitlint -e $GIT_PARAMS"
+  	}  
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
